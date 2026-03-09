@@ -5,7 +5,7 @@ const Permission = require('./authorization/permission_model')
 const Role = require('./authorization/role_model')
 const BorrowBook = require('./borrowBook_model')
 const RolePermission = require('./authorization/role_permission')
-
+const UserRole = require('./authorization/userRole')
 
 User.hasMany(Author,{foreignKey:'user_id'})
 Author.belongsTo(User,{foreignKey:'user_id'})
@@ -28,3 +28,8 @@ BorrowBook.belongsTo(User,{foreignKey:'user_id'})
 Book.hasMany(BorrowBook,{foreignKey:'book_id'})
 BorrowBook.belongsTo(Book,{foreignKey:'book_id'})
 
+User.hasMany(UserRole,{foreignKey:'user_id'})
+UserRole.belongsTo(User,{foreignKey:'user_id'})
+
+Role.hasMany(UserRole,{foreignKey:'role_id'})
+UserRole.belongsTo(Role,{foreignKey:'role_id'})
