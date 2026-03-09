@@ -1,7 +1,7 @@
-const { sequelize } = require('../../config/mysql')
+const { sequelize } = require('../config/mysql')
 const { DataTypes } = require('sequelize')
 
-const Role = sequelize.define('Role', {
+const Author = sequelize.define('Author', {
     id: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
@@ -30,4 +30,4 @@ const Role = sequelize.define('Role', {
         }
     }
 })
-module.exports = Role
+module.exports = Author

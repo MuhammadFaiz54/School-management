@@ -1,19 +1,28 @@
 const { sequelize } = require('../../config/mysql')
 const { DataTypes } = require('sequelize')
 
-const Role = sequelize.define('Role', {
+const RolePermission = sequelize.define('RolePermission', {
     id: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true
     },
-    name: {
+    role_id: {
         type: DataTypes.STRING,
         allowNull: false,
+        references:{
+            model:'Roles',
+            key:'id'
+        }
     },
-    slug: {
-        type: DataTypes.STRING,
-        allowNull: false
+    permission_id: {
+        type: DataTypes.UUID,
+        allowNull: false,
+        references:{
+            model:'Permissions',
+            key:'id'
+        }
+
     },
     createdBy: {
         type: DataTypes.UUID,
@@ -30,4 +39,4 @@ const Role = sequelize.define('Role', {
         }
     }
 })
-module.exports = Role
+module.exports = RolePermission

@@ -1,7 +1,7 @@
-const { sequelize } = require('../../config/mysql')
+const { sequelize } = require('../config/mysql')
 const { DataTypes } = require('sequelize')
 
-const Role = sequelize.define('Role', {
+const Book = sequelize.define('Book', {
     id: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
@@ -11,9 +11,19 @@ const Role = sequelize.define('Role', {
         type: DataTypes.STRING,
         allowNull: false,
     },
+    author_id: {
+        type: DataTypes.UUID,
+        allowNull: false,
+        references:{
+            model:'Authors',
+            key:'id'
+        }
+
+    },
     slug: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        unique:true
     },
     createdBy: {
         type: DataTypes.UUID,
@@ -30,4 +40,4 @@ const Role = sequelize.define('Role', {
         }
     }
 })
-module.exports = Role
+module.exports = Book
