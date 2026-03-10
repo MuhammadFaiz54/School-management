@@ -8,7 +8,7 @@ const RolePermission = sequelize.define('RolePermission', {
         primaryKey: true
     },
     role_id: {
-        type: DataTypes.STRING,
+        type: DataTypes.UUID,
         allowNull: false,
         references:{
             model:'Roles',
@@ -26,6 +26,7 @@ const RolePermission = sequelize.define('RolePermission', {
     },
     createdBy: {
         type: DataTypes.UUID,
+        allowNull:true,
         references: {
             model: 'Users',
             key: 'id'
@@ -33,6 +34,7 @@ const RolePermission = sequelize.define('RolePermission', {
     },
     updatedBy: {
         type: DataTypes.UUID,
+        allowNull:true,
         references: {
             model: 'Users',
             key: 'id'

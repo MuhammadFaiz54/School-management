@@ -17,6 +17,7 @@ const Role = sequelize.define('Role', {
     },
     createdBy: {
         type: DataTypes.UUID,
+        allowNull:true,
         references: {
             model: 'Users',
             key: 'id'
@@ -24,6 +25,7 @@ const Role = sequelize.define('Role', {
     },
     updatedBy: {
         type: DataTypes.UUID,
+        allowNull:true,
         references: {
             model: 'Users',
             key: 'id'
