@@ -74,7 +74,7 @@ if (roleCount>0){
 
     const hashPass =await bcrypt.hash('admin123', 10)
     const adminCreate = await User.findOrCreate({
-        where: {email: 'admin@gmal.com'},
+        where: {email: 'admin@gmail.com'},
         defaults:{ name: 'admin', password: hashPass }
     })
     await UserRole.findOrCreate({

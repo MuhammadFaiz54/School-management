@@ -34,6 +34,8 @@ const LoginFn = async (req,res)=> {
         }
 
         const {email, password} = req.body;
+        console.log("email===",email);
+        
         const userExist = await User.findOne({where:{email}})
         if (!userExist){
             return res.status(400).json({message:"Email not found"})

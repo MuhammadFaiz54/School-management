@@ -13,11 +13,13 @@ const Book = sequelize.define('Book', {
     },
     author_id: {
         type: DataTypes.UUID,
-        allowNull: false,
+        allowNull: true,
         references:{
             model:'Authors',
             key:'id'
-        }
+        },
+        onDelete:'SET NULL',
+
 
     },
     slug: {

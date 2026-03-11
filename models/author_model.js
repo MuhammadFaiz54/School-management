@@ -17,6 +17,7 @@ const Author = sequelize.define('Author', {
     },
     createdBy: {
         type: DataTypes.UUID,
+        allowNull:true,
         references: {
             model: 'Users',
             key: 'id'
@@ -24,6 +25,7 @@ const Author = sequelize.define('Author', {
     },
     updatedBy: {
         type: DataTypes.UUID,
+        allowNull:true,
         references: {
             model: 'Users',
             key: 'id'
